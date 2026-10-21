@@ -7,6 +7,8 @@ Sitio estático (HTML + CSS planos, sin build) con las políticas de privacidad 
 ```
 index.html                    # Portada con la lista de apps
 assets/style.css              # Estilos compartidos (claro/oscuro, color por app)
+assets/img/<slug>/            # Capturas originales de cada app (no se publican)
+assets/img/<slug>/web/        # Capturas optimizadas (WebP 480 px) que usan las páginas
 <slug>/index.html             # Una política por app
 .nojekyll                     # Desactiva Jekyll en GitHub Pages
 PLAN.md                       # Plan original del proyecto
@@ -22,6 +24,12 @@ PLAN.md                       # Plan original del proyecto
 | club-de-conquistadores | `org.ajcm.conquistadores` | `app-club` | https://play.google.com/store/apps/details?id=org.ajcm.conquistadores | jhonlimaster@gmail.com |
 | conquistadores-y-guias-mayores | `org.ajcm.pathfinderdia` | `app-pathfinder` | https://play.google.com/store/apps/details?id=org.ajcm.pathfinderdia | jhonlimaster@gmail.com |
 
+## Imágenes
+
+Las capturas originales se guardan en `assets/img/<slug>/` y las páginas solo usan las versiones optimizadas de `assets/img/<slug>/web/` (`1.webp`, `2.webp`…; la 1 es la del hero y la tarjeta de la portada). Se referencian con ruta relativa (`../assets/img/...` desde la política, `./assets/img/...` desde la portada) y llevan `width`/`height` y `alt`.
+
+No publicar capturas con datos personales: nombres, fotos, correos, listas de alumnos ni nombres de colegio. Por eso se excluyeron `00_inicio`, `02_estudiantes`, `05_exportar_asistencia`, `08_tomar_asistencia` y `09_centralizador` de ColeApp, el perfil y el ranking de Joven Adventista, y el menú principal y el rincón de unidad del Club de Conquistadores.
+
 ## Reglas
 
 - Todos los enlaces internos son relativos (sin `/` inicial): el sitio vive bajo `/irondroid-legal/`.
@@ -31,7 +39,8 @@ PLAN.md                       # Plan original del proyecto
 
 ## Diseño
 
-- Cada app tiene un color propio: la clase del `<body>` fija `--accent` en `assets/style.css`, con variante para modo oscuro.
+- Cada app usa los colores de su propia app (muestreados de las capturas): la clase del `<body>` fija `--brand` (cabecera), `--link`, `--cta` y `--on-cta` en `assets/style.css`, con variante para modo oscuro. Mantener contraste mínimo 4.5:1 en texto.
+- Cada política tiene cabecera con una captura recortada y una galería horizontal de capturas; la portada muestra una tarjeta con captura por app.
 - Cada política tiene cabecera (nombre, botón a Google Play, fecha, package ID) e índice lateral generado a partir de los `<h2>`, que llevan `id`.
 - Modo oscuro automático (`prefers-color-scheme`) y diseño adaptable a móvil.
 
