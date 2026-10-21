@@ -51,7 +51,7 @@ Estilo landing de app, una sola marca IronDroid; cada app cambia solo color y ca
 
 Settings → Pages → Deploy from a branch, `main`, `/ (root)`. Cada push a `main` actualiza el sitio en unos minutos. Las URLs son `https://irondroid.github.io/irondroid-legal/<slug>/`.
 
-Si esa URL redirige a otro dominio, es el dominio personalizado heredado del repo `IronDroid/IronDroid.github.io` (se quita en su Settings → Pages y borrando su `CNAME`).
+Si esa URL redirige a otro dominio (`jhonlimaster.org`), era el dominio personalizado heredado del repo `IronDroid/IronDroid.github.io`. Ya se quitó (ese repo no tiene `CNAME`) y el sitio responde sin redirección; si reaparece en un navegador, es la caché de la 301 antigua: probar en ventana privada o borrar los datos del sitio. Si sigue, revisar "Custom domain" en el Settings → Pages de ambos repos.
 
 ## Añadir o editar una app
 
