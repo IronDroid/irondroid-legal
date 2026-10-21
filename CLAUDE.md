@@ -34,15 +34,18 @@ No publicar capturas con datos personales: nombres, fotos, correos, listas de al
 
 - Todos los enlaces internos son relativos (sin `/` inicial): el sitio vive bajo `/irondroid-legal/`.
 - No usar PDF ni URLs con fechas o versiones: las URLs se registran en Play Console y deben ser estables.
-- Sin fuentes ni scripts externos.
+- Sin scripts externos. Única dependencia externa permitida: Google Fonts (Outfit para titulares, Work Sans para texto), con `display=swap`.
 - Remoto `origin` por SSH (`git@github.com:IronDroid/irondroid-legal.git`); por HTTPS el push falla por falta de credenciales.
 
 ## Diseño
 
-- Cada app usa los colores de su propia app (muestreados de las capturas): la clase del `<body>` fija `--brand` (cabecera), `--link`, `--cta` y `--on-cta` en `assets/style.css`, con variante para modo oscuro. Mantener contraste mínimo 4.5:1 en texto.
-- Cada política tiene cabecera con una captura recortada y una galería horizontal de capturas; la portada muestra una tarjeta con captura por app.
-- Cada política tiene cabecera (nombre, botón a Google Play, fecha, package ID) e índice lateral generado a partir de los `<h2>`, que llevan `id`.
-- Modo oscuro automático (`prefers-color-scheme`) y diseño adaptable a móvil.
+Estilo landing de app, una sola marca IronDroid; cada app cambia solo color y capturas. Todo en `assets/style.css`.
+
+- **Color por app**: clase en `<body>` (política) y en el `<li>` (portada): `app-hiad`, `app-joven`, `app-coleapp`, `app-club`, `app-pathfinder`. Fijan `--brand` y `--accent`, con variante oscura (`--on-brand` solo en oscuro). `--soft` se calcula en `body, [class*="app-"]` (depende de `--brand`; no moverlo a `:root`). Contraste mínimo 4.5:1 en texto.
+- **Política**: barra superior → hero (icono, package ID, titular, frase, botones Google Play / política, 3 teléfonos) → carrusel "Así se ve" → política con índice lateral sticky (los `<h3>` llevan `id`) → pie con contacto.
+- **Teléfonos**: componente `.phone` (marco CSS) que contiene la captura completa, sin recortar. Hero: izquierda, centro y derecha; el índice 0 de `web/` es la captura principal.
+- **Icono**: si existe `assets/img/<slug>/icon.png` se usa; si no, un cuadrado con iniciales.
+- Modo oscuro automático (`prefers-color-scheme`), diseño adaptable a móvil, `prefers-reduced-motion` respetado.
 
 ## Publicación
 
