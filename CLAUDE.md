@@ -44,7 +44,7 @@ Estilo landing de app, una sola marca IronDroid; cada app cambia solo color y ca
 - **Color por app**: clase en `<body>` (política) y en el `<li>` (portada): `app-hiad`, `app-joven`, `app-coleapp`, `app-club`, `app-pathfinder`. Fijan `--brand` y `--accent`, con variante oscura (`--on-brand` solo en oscuro). `--soft` se calcula en `body, [class*="app-"]` (depende de `--brand`; no moverlo a `:root`). Contraste mínimo 4.5:1 en texto.
 - **Política**: barra superior → hero (icono, package ID, titular, frase, botones Google Play / política, 3 teléfonos) → carrusel "Así se ve" → política con índice lateral sticky (los `<h3>` llevan `id`) → pie con contacto.
 - **Teléfonos**: componente `.phone` (marco CSS) que contiene la captura completa, sin recortar. Hero: izquierda, centro y derecha; el índice 0 de `web/` es la captura principal.
-- **Icono**: si existe `assets/img/<slug>/icon.png` se usa; si no, un cuadrado con iniciales.
+- **Icono**: el original va en `assets/img/<slug>/icon.png` (512×512, no se sube) y las páginas usan `assets/img/<slug>/web/icon.webp` (192 px). Se muestra sobre un cuadrado blanco (`.icon.has-img`) porque los iconos tienen formas y fondos distintos.
 - Modo oscuro automático (`prefers-color-scheme`), diseño adaptable a móvil, `prefers-reduced-motion` respetado.
 
 ## Publicación
