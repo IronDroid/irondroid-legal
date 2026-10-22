@@ -63,5 +63,6 @@ Si esa URL redirige a otro dominio (`jhonlimaster.org`), era el dominio personal
 
 ## Pendiente
 
-- Las secciones marcadas `[EJEMPLO]` (datos recopilados, uso, terceros, permisos, conservación, menores) son texto genérico: reemplazarlas con los datos reales de cada app antes de usar las URLs en Play Console.
-- Quitar el aviso "Contenido de ejemplo" de cada política al terminar.
+- Las políticas (22-oct-2026) se redactaron leyendo los proyectos en `~/AndroidStudioProjects` (manifiestos, dependencias, modelos de datos). Cuando una app cambie SDKs, permisos o datos, actualizar su política, el formulario de seguridad de datos de Play Console y la fecha "Última actualización".
+- Cada política tiene la sección `#eliminar-cuenta` (dentro de "Conservación y eliminación de datos"): usar esa URL en el campo de eliminación de cuenta de Play Console.
+- Ver en el historial de la conversación los puntos que el código debe corregir para coincidir con la política (eliminación de cuenta en Joven Adventista, AD_ID en Pathfinder, etc.).
